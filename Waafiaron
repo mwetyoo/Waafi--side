@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Waafi Loan Calculator</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background:#f5f5f5;
+    padding:20px;
+}
+
+.container{
+    max-width:400px;
+    margin:auto;
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 2px 10px rgba(0,0,0,.1);
+}
+
+h2{
+    text-align:center;
+}
+
+input,button{
+    width:100%;
+    padding:12px;
+    margin-top:10px;
+    box-sizing:border-box;
+}
+
+button{
+    background:#4CAF50;
+    color:white;
+    border:none;
+    cursor:pointer;
+}
+
+.result{
+    margin-top:15px;
+    font-weight:bold;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Waafi Loan Calculator</h2>
+
+    <input type="number" id="amount" placeholder="Loan Amount">
+
+    <button onclick="calculateLoan()">
+        Calculate
+    </button>
+
+    <div class="result" id="result"></div>
+</div>
+
+<script>
+function calculateLoan() {
+    let amount = parseFloat(document.getElementById("amount").value);
+
+    if (!amount || amount <= 0) {
+        document.getElementById("result").innerHTML =
+        "Enter a valid amount";
+        return;
+    }
+
+    let interest = amount * 0.10;
+    let total = amount + interest;
+
+    document.getElementById("result").innerHTML =
+    "Total Repayment: " + total.toFixed(2);
+}
+</script>
+
+</body>
+</html>
